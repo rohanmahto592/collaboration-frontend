@@ -16,7 +16,7 @@ const Drawing = () => {
     link.click();
   };
   useEffect(()=>{
-    socket.current = io(`${process.env.SERVER||'http://localhost:4000'}`)
+    socket.current = io('https://collaboration-backend-dref.onrender.com')
   },[])
   return (
     <>
