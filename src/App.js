@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { AppProvider } from "./AppContext";
+import Drawing from "./Components/Drawing/Drawing";
+import RoomComponent from "./Components/CreateRoom/RoomComponent";
+import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<RoomComponent/>}/>
+          <Route path="/room/:id" element={<Drawing/>}/>
+        </Routes>
+      </Router>
+    </AppProvider>
   );
 }
 
